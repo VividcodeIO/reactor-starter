@@ -1,0 +1,28 @@
+plugins {
+    id "io.spring.dependency-management" version "1.0.0.RC2"
+}
+
+group 'io.vividcode'
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "io.projectreactor:reactor-bom:Aluminium-SR1"
+    }
+}
+
+dependencies {
+    compile 'io.projectreactor:reactor-core'
+    compile 'org.apache.commons:commons-lang3:3.5'
+    compile 'ch.qos.logback:logback-classic:1.2.1'
+    testCompile 'io.projectreactor.addons:reactor-test'
+    testCompile 'junit:junit:4.12'
+}
